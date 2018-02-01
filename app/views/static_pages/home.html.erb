@@ -1,3 +1,21 @@
 <% provide(:title, "Home") %>
-<h1>Calories App</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<section class="section">
+  <div class="container is-widescreen">
+    <div class="tile">
+      <p class="is-size-2"><strong>Welcome to the Calories App!</strong></p>
+    </div>
+    <% if user_signed_in? %>
+      <div class="tile">
+        <p class="is-size-5"><%= link_to "Create a new registry", new_calories_registry_path  %> to start seeing your progress.</p>
+      </div>
+    <% else %>
+      <div class="tile">
+        <p class="is-size-5"><%= link_to "Log in", new_user_session_path %> to register the calories you gain or burned throughout the day!</p>
+      </div>
+      <div class="tile">
+        <p class="is-size-6"> Or <%= link_to "create an account", new_user_registration_path %></p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</section>
