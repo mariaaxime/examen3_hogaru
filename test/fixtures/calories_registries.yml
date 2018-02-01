@@ -4,8 +4,10 @@ one:
   quantity: 1.5
   type: 
   comment: MyString
+  user: one
 
 two:
   quantity: 1.5
   type: 
   comment: MyString
+  user: two

@@ -4,6 +4,7 @@ class CreateCaloriesRegistries < ActiveRecord::Migration[5.1]
       t.float :quantity
       t.string :type
       t.string :comment
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

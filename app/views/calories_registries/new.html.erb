@@ -1,0 +1,30 @@
+<% provide(:title, 'New registry') %>
+<%= form_for(@calories_registry) do |f| %>
+  <div class="field">
+    <%= f.label :quantity, "Number of calories", class: 'label' %>
+    <div class="control">
+      <%= f.number_field :quantity , min: 1 %>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.label :type, "Type", class: 'label' %>
+    <div class="control">
+      <div class="select">
+        <%= select_tag(:type, options_for_select([['Gained', "gained"], ['Burned', "burned"]], 2)) %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="field">
+    <%= f.label :comment, "Comment" %>
+    <div class="control">
+      <%= f.text_area :comment, placeholder: "How did you gain/burn those calories?" %>
+    </div>
+  </div>
+  
+  <div class="field">
+    <div class="control">
+      <%= f.submit "Save" %>
+    </div>
+  </div>
+<% end %>
