@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Examen3 Hogaru</title>
+    <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
     <div class="notice"><%= notice %></div>
     <div class="alert"><%= alert %></div>
     <%= yield %>
