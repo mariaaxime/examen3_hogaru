@@ -1,0 +1,12 @@
+<% if @calories_registry.errors.any? %>
+  <div class="notification">
+    The form contains <%= pluralize(@calories_registry.errors.count, "error") %>.
+  </div>
+  <div class="notification is-danger">
+    <ul>
+    <% @calories_registry.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

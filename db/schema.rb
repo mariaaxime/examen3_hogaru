@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201194646) do
+ActiveRecord::Schema.define(version: 20180201201309) do
 
   create_table "calories_registries", force: :cascade do |t|
     t.float "quantity"
-    t.string "type"
+    t.string "registry_type"
     t.string "comment"
     t.integer "user_id"
     t.datetime "created_at", null: false

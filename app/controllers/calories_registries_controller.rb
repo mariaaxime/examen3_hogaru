@@ -10,13 +10,27 @@ class CaloriesRegistriesController < ApplicationController
   end
   
   def create
-    @calories_registry = current_user.calories_registries.build(announcement_params)
+    @calories_registry = current_user.calories_registries.build(calories_registry_params)
+    if @calories_registry.save
+      flash[:success] = "Registry saved!"
+      redirect_to calories_registries_url
+    else
+      render 'new'
+    end
   end
   
   def edit
+    @calories_registry = CaloriesRegistry.find(params[:id])
   end
   
   def update
+    @calories_registry = CaloriesRegistry.find(params[:id])
+    if @calories_registry.update_attributes(calories_registry_params)
+      flash[:success] = "Registry updated"
+      redirect_to @calories_registry
+    else
+      render 'edit'
+    end
   end
   
   def show
@@ -29,7 +43,7 @@ class CaloriesRegistriesController < ApplicationController
   private
   
     def calories_registry_params
-      params.require(:calories_registry).permit(:quantity, :type, :comment)
+      params.require(:calories_registry).permit(:quantity, :registry_type, :comment)
     end
   
     def correct_user
