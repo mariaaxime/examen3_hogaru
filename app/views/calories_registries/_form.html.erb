@@ -1,39 +1,43 @@
-<%= form_for(@calories_registry) do |f| %>
-  <%= render 'shared/error_messages', object: @calories_registry %>
-
-  <div class="field">
-    <%= f.label :quantity, "Quantity of calories", class: 'label' %>
-    <div class="control">
-      <%= f.number_field :quantity , min: 1 %>
-    </div>
-  </div>
-  
-  <div class="field">
-    <%= f.label :day, "Day", class: 'label' %>
-    <div class="control">
-      <%= f.date_field :day, min: Date.today %>
-    </div>
-  </div>
-  
-  <div class="field">
-    <%= f.label :registry_type, "Type", class: 'label' %>
-    <div class="control">
-      <div class="select">
-        <%= f.select(:registry_type, options_for_select(["Gained", "Burned"], "Gained")) %>
+<section class="section">
+  <div class="container is-widescreen">
+    <%= form_for(@calories_registry) do |f| %>
+      <%= render 'shared/error_messages', object: @calories_registry %>
+    
+      <div class="field">
+        <%= f.label :quantity, "Quantity of calories", class: 'label' %>
+        <div class="control">
+          <%= f.number_field :quantity , min: 1 %>
+        </div>
       </div>
-    </div>
+      
+      <div class="field">
+        <%= f.label :day, "Day", class: 'label' %>
+        <div class="control">
+          <%= f.date_field :day, max: Date.today %>
+        </div>
+      </div>
+      
+      <div class="field">
+        <%= f.label :registry_type, "Type", class: 'label' %>
+        <div class="control">
+          <div class="select">
+            <%= f.select(:registry_type, options_for_select(["Gained", "Burned"], "Gained")) %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="field">
+        <%= f.label :comment, "Comment" %>
+        <div class="control">
+          <%= f.text_area :comment, placeholder: "How did you gain/burn those calories?" %>
+        </div>
+      </div>
+      
+      <div class="field">
+        <div class="control">
+          <%= f.submit "Save" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  
-  <div class="field">
-    <%= f.label :comment, "Comment" %>
-    <div class="control">
-      <%= f.text_area :comment, placeholder: "How did you gain/burn those calories?" %>
-    </div>
-  </div>
-  
-  <div class="field">
-    <div class="control">
-      <%= f.submit "Save" %>
-    </div>
-  </div>
-<% end %>
+</section>
