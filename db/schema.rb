@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201201309) do
+ActiveRecord::Schema.define(version: 20180201205900) do
 
   create_table "calories_registries", force: :cascade do |t|
     t.float "quantity"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180201201309) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "day"
     t.index ["user_id"], name: "index_calories_registries_on_user_id"
   end
 

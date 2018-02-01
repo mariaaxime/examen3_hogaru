@@ -3,6 +3,7 @@ class CaloriesRegistriesController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :show, :destroy]
   
   def index
+    @calories_registries = current_user.calories_registries.page(params[:page])
   end
   
   def new
@@ -34,16 +35,20 @@ class CaloriesRegistriesController < ApplicationController
   end
   
   def show
+    @calories_registry = CaloriesRegistry.find(params[:id])
   end
   
   def destroy
+    CaloriesRegistry.find(params[:id]).destroy
+    flash[:success] = "Registry deleted"
+    redirect_to calories_registries_url
   end
   
     
   private
   
     def calories_registry_params
-      params.require(:calories_registry).permit(:quantity, :registry_type, :comment)
+      params.require(:calories_registry).permit(:quantity, :day, :registry_type, :comment)
     end
   
     def correct_user

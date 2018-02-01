@@ -1,0 +1,9 @@
+<section class="section">
+  <div class="container">
+    <p><strong>Quantity of calories <%= calories_registry.registry_type.downcase %>: </strong> <%= calories_registry.quantity %></p>
+    <p><strong>Date: </strong> <%= calories_registry.day %></p>
+    <p><strong>How? </strong> <%= calories_registry.comment %></p>
+    <%= link_to "Edit", edit_calories_registry_path(calories_registry) %> | 
+    <%= link_to "Delete", calories_registry, method: :delete, data: { confirm: "Delete registry?" } %>
+  </div>
+</section>

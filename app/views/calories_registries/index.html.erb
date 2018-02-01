@@ -1,0 +1,10 @@
+<% provide(:title, 'Registries') %>
+<%= link_to "Create new registry", new_calories_registry_path, class: "navbar-item"  %>
+<br>
+<div class="container is-widescreen">
+  <%= paginate @calories_registries %>
+</div>
+<%= render @calories_registries %>
+<div class="container is-widescreen">
+  <%= paginate @calories_registries %>
+</div>

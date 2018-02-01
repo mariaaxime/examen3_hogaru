@@ -9,6 +9,13 @@
   </div>
   
   <div class="field">
+    <%= f.label :day, "Day", class: 'label' %>
+    <div class="control">
+      <%= f.date_field :day, min: Date.today %>
+    </div>
+  </div>
+  
+  <div class="field">
     <%= f.label :registry_type, "Type", class: 'label' %>
     <div class="control">
       <div class="select">

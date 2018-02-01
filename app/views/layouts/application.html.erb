@@ -12,8 +12,19 @@
   <body>
     <%= render 'layouts/header' %>
     <% flash.each do |message_type, message| %>
+      <% message_type = message_type=="notice" ? "success" : message_type %>
       <%= content_tag(:div, message, class: "notification is-#{message_type}") %>
     <% end %>
     <%= yield %>
+    
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Calories App</strong> by Maria Ximena Acuña.
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
