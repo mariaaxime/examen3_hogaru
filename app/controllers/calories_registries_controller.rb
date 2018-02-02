@@ -3,7 +3,17 @@ class CaloriesRegistriesController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :show, :destroy]
   
   def index
-    @calories_registries = current_user.calories_registries.page(params[:page])
+    @calories_registries = current_user.calories_registries
+    if params[:term].present?
+      @calories_registries =  @calories_registries.where('comment LIKE ?', "%#{params[:term]}%")
+    end
+    if params[:mindate].present?
+      @calories_registries =  @calories_registries.where('day >= ?', params[:mindate])
+    end
+    if params[:maxdate].present?
+      @calories_registries =  @calories_registries.where('day <= ?', params[:maxdate])
+    end
+    @calories_registries = @calories_registries.page(params[:page])
   end
   
   def new
@@ -47,12 +57,12 @@ class CaloriesRegistriesController < ApplicationController
   private
   
     def calories_registry_params
-      params.require(:calories_registry).permit(:quantity, :day, :registry_type, :comment)
+      params.require(:calories_registry).permit(:quantity, :day, :registry_type, :comment, :term, :mindate, :maxdate)
     end
   
     def correct_user
       @user = User.find(CaloriesRegistry.find(params[:id]).user_id)
       redirect_to(root_url) unless @user == current_user
     end
-  
+    
 end

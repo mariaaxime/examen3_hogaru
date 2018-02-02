@@ -3,23 +3,36 @@
   <%= link_to "Create new registry", new_calories_registry_path  %>
 </section>
 <br>
-<div class="field has-addons">
-  <%= form_tag(calories_registries_path) do %>
-    <div class="control">
-      <%= text_field_tag :term %>
-    </div>
-    <%= submit_tag 'Search' %>
-  <% end %>
-  
-    <input class="input" type="text" placeholder="Find a repository">
-  </div>
-  <div class="control">
-    <a class="button is-info">
-      Search
-    </a>
+<div class="container is-widescreen">
+  <div class="field has-addons">
+    <%= form_tag(calories_registries_path, method: :get) do %>
+      <div class="tile is-ancestor">
+        <div class="tile is-parent">
+          <article class="tile is-child box control">
+            <%= label_tag :term, 'Comment' %><br>
+            <%= text_field_tag :term, nil, placeholder: "Search by comment" %>
+          </article>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child box control">
+            <%= label_tag :mindate, 'Minimum date' %>
+            <%= date_field_tag :mindate %>
+          </article>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child box control">
+            <%= label_tag :maxdate, 'Maximum date' %>
+            <%= date_field_tag :maxdate %>
+          </article>
+        </div>
+      </div>
+      <div class="control">
+        <%= submit_tag 'Search', class: "button is-info" %>
+      </div>
+    <% end %>
   </div>
 </div>
-
+<br><br>
 <div class="container is-widescreen">
   <%= paginate @calories_registries %>
 </div>
