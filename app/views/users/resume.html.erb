@@ -1,0 +1,7 @@
+<% provide(:title, "Progress") %>
+<section class="section">
+  <p class="is-size-4"><strong>Your progress</strong></p>
+  <div class="container is-widescreen">
+    <%= content_tag :div, "", id: "resume_chart", data: {registries: registries_chart_data} %>
+  </div>
+</section>

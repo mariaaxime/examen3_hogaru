@@ -1,6 +1,7 @@
 <% provide(:title, "Registry") %>
 <div class="container">
-  <h1>REGISTRY INFO</h1>
+  <p class="is-size-5"><strong>REGISTRY INFO</strong></p>
   <p><strong>Quantity of calories <%= @calories_registry.registry_type.downcase %>: </strong> <%= @calories_registry.quantity %></p>
+  <p><strong>Date: </strong> <%= @calories_registry.day %></p>
   <p><strong>How? </strong> <%= @calories_registry.comment %></p>
 </div>

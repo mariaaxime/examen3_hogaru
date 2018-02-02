@@ -44,7 +44,6 @@ class CaloriesRegistriesController < ApplicationController
     redirect_to calories_registries_url
   end
   
-    
   private
   
     def calories_registry_params

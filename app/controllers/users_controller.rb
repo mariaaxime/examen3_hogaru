@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :correct_user, only: [:edit, :update, :show]
+  before_action :correct_user, only: [:edit, :update, :show, :resume]
   
   def index
   end
@@ -20,6 +20,9 @@ class UsersController < ApplicationController
   end
   
   def destroy
+  end
+  
+  def resume
   end
   
   private

@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require raphael
 //= require morris
+//= require resume
 //= require_tree .

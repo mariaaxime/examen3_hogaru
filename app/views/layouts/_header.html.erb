@@ -6,6 +6,7 @@
     <div class="navbar-end">
       <% if user_signed_in? %>
         <%= link_to "Registries", calories_registries_path, class: "navbar-item"  %>
+        <%= link_to "Progress", progress_path(current_user), method: :get, class: "navbar-item"  %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-item" %>
       <% else %>
         <%= link_to "Log in", new_user_session_path, class: "navbar-item"  %>
