@@ -1,0 +1,14 @@
+<% provide(:title, "Send my progress") %>
+
+<section class="section">
+  <div class="container is-widescreen">
+    <p class="is-size-5"><strong>Send my progress</strong></p>
+    <br>
+    <%= form_for(:progress_tracker, url: progress_trackers_path) do |f| %>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+  
+      <%= f.submit "Send", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</section>

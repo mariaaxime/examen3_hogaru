@@ -1,0 +1,5 @@
+<p class="is-size-5"><strong>Track my progress!</strong></p>
+
+<p>To track your friend's (@user.email) progress click the link below: </p>
+
+<%= progress_tracker_url(@user.progress_token, user: @user.id) %>

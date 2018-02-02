@@ -3,5 +3,7 @@
   <p class="is-size-4"><strong>Your progress</strong></p>
   <div class="container is-widescreen">
     <%= content_tag :div, "", id: "resume_chart", data: {registries: registries_chart_data} %>
+    <br>
+    <%= link_to "Send my progress", new_progress_tracker_path %>
   </div>
 </section>
