@@ -3,6 +3,23 @@
   <%= link_to "Create new registry", new_calories_registry_path  %>
 </section>
 <br>
+<div class="field has-addons">
+  <%= form_tag(calories_registries_path) do %>
+    <div class="control">
+      <%= text_field_tag :term %>
+    </div>
+    <%= submit_tag 'Search' %>
+  <% end %>
+  
+    <input class="input" type="text" placeholder="Find a repository">
+  </div>
+  <div class="control">
+    <a class="button is-info">
+      Search
+    </a>
+  </div>
+</div>
+
 <div class="container is-widescreen">
   <%= paginate @calories_registries %>
 </div>
