@@ -8,4 +8,15 @@ module UsersHelper
       }
     end
   end
+  
+  def registries_goal_chart_data
+    1.month.ago.to_date.upto(Date.today).map do |date|
+      {
+        date: date,
+        goal: User.find(params['id']).goal,
+        total: (CaloriesRegistry.where(["user_id = ? and registry_type = ? and day = ?", params[:id], "Gained", date]).sum(:quantity) 
+                      - CaloriesRegistry.where(["user_id = ? and registry_type = ? and day = ?", params[:id], "Burned", date]).sum(:quantity))
+      }
+    end
+  end
 end

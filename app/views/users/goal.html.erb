@@ -1,0 +1,19 @@
+<% provide(:title, "Your goal") %>
+<section class="section">
+  <div class="container is-widescreen">
+    <p class="is-size-5"><strong>Set your goal for consumed calories this month.</strong></p>
+    <br>
+    <%= form_for(@user) do |f| %>
+      <%= f.label :goal %>
+      <%= f.number_field :goal, min: 0, step: 100 %>
+      <%= f.submit "Save" %>
+    <% end %>
+  </div>
+</section>
+<section class="section">
+  <p class="is-size-4"><strong>How close are you to reaching your goal?</strong></p>
+  <div class="container is-widescreen">
+    <%= content_tag :div, "", id: "goal_chart", data: {registries: registries_goal_chart_data} %>
+    <br>
+  </div>
+</section>

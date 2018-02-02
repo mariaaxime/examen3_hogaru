@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   resources :progress_trackers
   
   get '/progress/:id', to: 'users#resume', as: :progress
+  get '/goal/:id', to: 'users#goal', as: :goal
   
 end

@@ -6,9 +6,9 @@
     <br>
     <%= form_for(:progress_tracker, url: progress_trackers_path) do |f| %>
       <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email%>
   
-      <%= f.submit "Send", class: "btn btn-primary" %>
+      <%= f.submit "Send" %>
     <% end %>
   </div>
 </section>

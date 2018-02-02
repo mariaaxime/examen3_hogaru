@@ -1,9 +1,11 @@
 50.times do |n|
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
+  goal = rand(1000..30000)
   u = User.create(email: email,
                password: password,
-               password_confirmation: password)
+               password_confirmation: password,
+               goal: goal)
   4.months.ago.to_date.upto(Date.today) do |date|
     5.times do
       quantity =  rand(100..1000)

@@ -14,6 +14,12 @@ class UsersController < ApplicationController
   end
   
   def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to goal_url
+    else
+      render 'goal'
+    end
   end
   
   def show
@@ -25,7 +31,15 @@ class UsersController < ApplicationController
   def resume
   end
   
+  def goal
+    @user = current_user
+  end
+  
   private
+  
+    def user_params
+      params.require(:user).permit(:email, :password, :goal)
+    end
   
     def correct_user
       @user = User.find(params[:id])
